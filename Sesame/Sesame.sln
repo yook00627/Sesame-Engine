@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Playground", "Playground\Playground.vcxproj", "{9EC0E6F6-98F5-4453-962F-D193E7725300}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sesame", "Sesame\Sesame.vcxproj", "{B54DA120-0B9D-4D33-82BF-94848ACED2A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B54DA120-0B9D-4D33-82BF-94848ACED2A1}.Debug|x64.ActiveCfg = Debug|x64
+		{B54DA120-0B9D-4D33-82BF-94848ACED2A1}.Debug|x64.Build.0 = Debug|x64
+		{B54DA120-0B9D-4D33-82BF-94848ACED2A1}.Release|x64.ActiveCfg = Release|x64
+		{B54DA120-0B9D-4D33-82BF-94848ACED2A1}.Release|x64.Build.0 = Release|x64
+		{9EC0E6F6-98F5-4453-962F-D193E7725300}.Debug|x64.ActiveCfg = Debug|x64
+		{9EC0E6F6-98F5-4453-962F-D193E7725300}.Debug|x64.Build.0 = Debug|x64
+		{9EC0E6F6-98F5-4453-962F-D193E7725300}.Release|x64.ActiveCfg = Release|x64
+		{9EC0E6F6-98F5-4453-962F-D193E7725300}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E83E68A-6071-461F-A0E9-75C3A1138790}
+	EndGlobalSection
+EndGlobal
