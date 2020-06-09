@@ -4,6 +4,9 @@
     <Filter Include="Sesame">
       <UniqueIdentifier>{8396DFD0-6F38-0AA7-58F3-1DFB443491F7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sesame\Events">
+      <UniqueIdentifier>{0771E083-7331-5CBA-3C6C-A537A8EBA096}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Sesame.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Sesame\EntryPoint.h">
       <Filter>Sesame</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Events\ApplicationEvent.h">
+      <Filter>Sesame\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Events\Event.h">
+      <Filter>Sesame\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Events\KeyEvent.h">
+      <Filter>Sesame\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Events\MouseEvent.h">
+      <Filter>Sesame\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Sesame\Log.h">
       <Filter>Sesame</Filter>
