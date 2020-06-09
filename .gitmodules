@@ -1,0 +1,3 @@
+[submodule "Sesame/vendor/spdlog"]
+	path = Sesame/vendor/spdlog
+	url = https://github.com/gabime/spdlog
