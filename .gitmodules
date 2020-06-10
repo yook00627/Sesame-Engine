@@ -1,3 +1,6 @@
 [submodule "Sesame/vendor/spdlog"]
 	path = Sesame/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Sesame/vendor/GLFW"]
+	path = Sesame/vendor/GLFW
+	url = https://github.com/yook00627/glfw

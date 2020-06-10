@@ -5,15 +5,15 @@
 
 namespace Sesame {
 
-	class SESAME_API Application
-	{
-	public:
-		Application();
-		virtual ~Application();
+    class SESAME_API Application
+    {
+    public:
+        Application();
+        virtual ~Application();
 
-		void Run();
-	};
+        void Run();
+    };
 
-	//Should be defined in Client
-	Application* CreateApplication();
+    //Should be defined in Client
+    Application* CreateApplication();
 }

@@ -3,17 +3,17 @@
 class Playground : public Sesame::Application
 {
 public:
-	Playground()
-	{
+    Playground()
+    {
 
-	}
+    }
 
-	~Playground()
-	{
-	}
+    ~Playground()
+    {
+    }
 };
 
 Sesame::Application* Sesame::CreateApplication()
 {
-	return new Playground();
+    return new Playground();
 }
