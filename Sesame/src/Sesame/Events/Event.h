@@ -2,8 +2,6 @@
 
 #include "Sesame/Core.h"
 
-#include <string>
-#include <functional>
 
 namespace Sesame {
 

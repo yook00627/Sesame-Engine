@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ssmpch.h"
+
 #ifdef SSM_PLATFORM_WINDOWS
 	#ifdef SSM_BUILD_DLL
 		#define SESAME_API __declspec(dllexport)

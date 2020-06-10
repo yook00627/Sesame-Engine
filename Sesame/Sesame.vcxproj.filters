@@ -34,6 +34,7 @@
     <ClInclude Include="src\Sesame\Log.h">
       <Filter>Sesame</Filter>
     </ClInclude>
+    <ClInclude Include="src\ssmpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Sesame\Log.cpp">
       <Filter>Sesame</Filter>
     </ClCompile>
+    <ClCompile Include="src\ssmpch.cpp" />
   </ItemGroup>
 </Project>

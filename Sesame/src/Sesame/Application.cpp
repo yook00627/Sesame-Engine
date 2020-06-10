@@ -1,3 +1,4 @@
+#include "ssmpch.h"
 #include "Application.h"
 
 #include "Sesame/Events/ApplicationEvent.h"

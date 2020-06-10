@@ -18,6 +18,9 @@ project "Sesame"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "ssmpch.h"
+	pchsource "Sesame/src/ssmpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

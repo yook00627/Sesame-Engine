@@ -1,3 +1,4 @@
+#include "ssmpch.h"
 #include "Log.h"
 
 namespace Sesame {
