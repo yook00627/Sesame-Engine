@@ -7,6 +7,12 @@
     <Filter Include="Sesame\Events">
       <UniqueIdentifier>{0771E083-7331-5CBA-3C6C-A537A8EBA096}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sesame\Platform">
+      <UniqueIdentifier>{37D6DE19-A361-4CDE-AC72-CFD2187DA8DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sesame\Platform\Windows">
+      <UniqueIdentifier>{71C71EAB-DDFE-6642-E608-CB6552BF8D3B}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Sesame.h" />
@@ -34,6 +40,12 @@
     <ClInclude Include="src\Sesame\Log.h">
       <Filter>Sesame</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sesame\Platform\Windows\WindowsWindow.h">
+      <Filter>Sesame\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Window.h">
+      <Filter>Sesame</Filter>
+    </ClInclude>
     <ClInclude Include="src\ssmpch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="src\Sesame\Log.cpp">
       <Filter>Sesame</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Sesame\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\ssmpch.cpp" />
   </ItemGroup>

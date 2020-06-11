@@ -11,6 +11,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Sesame\Log.h"
+
 #ifdef SSM_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

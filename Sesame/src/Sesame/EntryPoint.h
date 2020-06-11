@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef  SSM_PLATFORM_WINDOWS
+#ifdef SSM_PLATFORM_WINDOWS
 
 extern Sesame::Application* Sesame::CreateApplication();
 

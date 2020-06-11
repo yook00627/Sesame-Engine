@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Window.h"
 
 namespace Sesame {
 
@@ -12,6 +13,9 @@ namespace Sesame {
         virtual ~Application();
 
         void Run();
+    private:
+        std::unique_ptr<Window> m_Window;
+        bool m_Running = true;
     };
 
     //Should be defined in Client

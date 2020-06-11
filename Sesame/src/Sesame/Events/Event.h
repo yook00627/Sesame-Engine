@@ -1,7 +1,7 @@
 #pragma once
+#include "ssmpch.h"
 
 #include "Sesame/Core.h"
-
 
 namespace Sesame {
 
