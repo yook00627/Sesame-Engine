@@ -37,6 +37,12 @@
     <ClInclude Include="src\Sesame\Events\MouseEvent.h">
       <Filter>Sesame\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sesame\Layer.h">
+      <Filter>Sesame</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\LayerStack.h">
+      <Filter>Sesame</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sesame\Log.h">
       <Filter>Sesame</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
+      <Filter>Sesame</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\Layer.cpp">
+      <Filter>Sesame</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\LayerStack.cpp">
       <Filter>Sesame</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\Log.cpp">

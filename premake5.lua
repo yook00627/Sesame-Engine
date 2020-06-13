@@ -65,14 +65,17 @@ project "Sesame"
 
     filter "configurations:Debug"
         defines "SSM_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "SSM_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "SSM_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 
@@ -113,12 +116,15 @@ project "Playground"
 
     filter "configurations:Debug"
         defines "SSM_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "SSM_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "SSM_DIST"
+        buildoptions "/MD"
         optimize "On"
