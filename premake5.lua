@@ -13,9 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Adding include paths relative to root folder
 IncludeDir = {}
 IncludeDir["GLFW"] = "Sesame/vendor/GLFW/include"
+IncludeDir["Glad"] = "Sesame/vendor/GLAD/include"
 
 -- Adding extra premake files
 include "Sesame/vendor/GLFW"
+include "Sesame/vendor/Glad"
 
 project "Sesame"
     location "Sesame"
@@ -38,12 +40,14 @@ project "Sesame"
     {
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -55,7 +59,8 @@ project "Sesame"
         defines
         {
             "SSM_PLATFORM_WINDOWS",
-            "SSM_BUILD_DLL"
+            "SSM_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
