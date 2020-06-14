@@ -4,3 +4,6 @@
 [submodule "Sesame/vendor/GLFW"]
 	path = Sesame/vendor/GLFW
 	url = https://github.com/yook00627/glfw
+[submodule "Sesame/vendor/imgui"]
+	path = Sesame/vendor/imgui
+	url = https://github.com/yook00627/imgui

@@ -14,10 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Sesame/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sesame/vendor/GLAD/include"
+IncludeDir["ImGui"] = "Sesame/vendor/imgui"
 
 -- Adding extra premake files
 include "Sesame/vendor/GLFW"
 include "Sesame/vendor/Glad"
+include "Sesame/vendor/imgui"
 
 project "Sesame"
     location "Sesame"
@@ -41,13 +43,15 @@ project "Sesame"
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}"
     }
 
     links
     {
         "GLFW",
         "Glad",
+        "ImGui",
         "opengl32.lib"
     }
 
