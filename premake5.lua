@@ -1,5 +1,6 @@
 workspace "Sesame"
     architecture "x64"
+    startproject "Playground"
 
     configurations
     {
@@ -17,14 +18,17 @@ IncludeDir["Glad"] = "Sesame/vendor/GLAD/include"
 IncludeDir["ImGui"] = "Sesame/vendor/imgui"
 
 -- Adding extra premake files
-include "Sesame/vendor/GLFW"
-include "Sesame/vendor/Glad"
-include "Sesame/vendor/imgui"
+group "Dependencies"
+    include "Sesame/vendor/GLFW"
+    include "Sesame/vendor/Glad"
+    include "Sesame/vendor/imgui"
+group ""
 
 project "Sesame"
     location "Sesame"
     kind "SharedLib"
     language "C++"
+    staticruntime "off"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -57,7 +61,6 @@ project "Sesame"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
         
         defines
@@ -69,22 +72,22 @@ project "Sesame"
 
         postbuildcommands
         {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Playground")
+            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Playground/\"")
         }
 
     filter "configurations:Debug"
         defines "SSM_DEBUG"
-        buildoptions "/MDd"
+        runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
         defines "SSM_RELEASE"
-        buildoptions "/MD"
+        runtime "Release"
         optimize "On"
 
     filter "configurations:Dist"
         defines "SSM_DIST"
-        buildoptions "/MD"
+        runtime "Release"
         optimize "On"
 
 
@@ -92,6 +95,7 @@ project "Playground"
     location "Playground"
     kind "ConsoleApp"
     language "C++"
+    staticruntime "off"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +119,6 @@ project "Playground"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
         
         defines
@@ -125,15 +128,15 @@ project "Playground"
 
     filter "configurations:Debug"
         defines "SSM_DEBUG"
-        buildoptions "/MDd"
+        runtime "Debug"
         symbols "On"
 
     filter "configurations:Release"
         defines "SSM_RELEASE"
-        buildoptions "/MD"
+        runtime "Release"
         optimize "On"
 
     filter "configurations:Dist"
         defines "SSM_DIST"
-        buildoptions "/MD"
+        runtime "Release"
         optimize "On"
