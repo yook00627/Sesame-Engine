@@ -74,6 +74,7 @@
 #include "ssmpch.h"
 #include "imgui.h"
 #include "ImGuiOpenGLRenderer.h"
+#include "glad/glad.h"
 #include <stdio.h>
 #if defined(_MSC_VER) && _MSC_VER <= 1500 // MSVC 2008 or earlier
 #include <stddef.h>     // intptr_t
@@ -116,8 +117,6 @@ using namespace gl;
 #include <glbinding/glbinding.h>// Needs to be initialized with glbinding::initialize() in user's code.
 #include <glbinding/gl/gl.h>
 using namespace gl;
-#else
-#include IMGUI_IMPL_OPENGL_LOADER_CUSTOM
 #endif
 #endif
 

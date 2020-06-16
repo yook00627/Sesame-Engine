@@ -8,7 +8,7 @@ public:
 
     void OnUpdate() override
     {
-        SSM_INFO("Exmpale for updating Layer");
+        //SSM_INFO("Exmpale for updating Layer");
     }
 
     void OnEvent(Sesame::Event& event) override

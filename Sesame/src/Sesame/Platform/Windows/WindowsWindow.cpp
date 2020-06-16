@@ -100,6 +100,14 @@ namespace Sesame {
                 }
             });
 
+        glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int codepoint)
+            {
+                WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+                KeyTypedEvent event(codepoint);
+                data.EventCallback(event);
+            });
+
         glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
             {
                 WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -114,7 +122,7 @@ namespace Sesame {
                 }
                 case GLFW_RELEASE:
                 {
-                    KeyReleasedEvent event(button);
+                    MouseButtonReleasedEvent event(button);
                     data.EventCallback(event);
                     break;
                 }
@@ -133,7 +141,7 @@ namespace Sesame {
             {
                 WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-                MouseMoveEvent event((float)xPos, (float)yPos);
+                MouseMovedEvent event((float)xPos, (float)yPos);
                 data.EventCallback(event);
             });
     }

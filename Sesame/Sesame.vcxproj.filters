@@ -7,8 +7,14 @@
     <Filter Include="Sesame\Events">
       <UniqueIdentifier>{0771E083-7331-5CBA-3C6C-A537A8EBA096}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sesame\ImGui">
+      <UniqueIdentifier>{EDA1CD32-D904-5DD7-828A-958D6ECC285A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Sesame\Platform">
       <UniqueIdentifier>{37D6DE19-A361-4CDE-AC72-CFD2187DA8DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sesame\Platform\OpenGL">
+      <UniqueIdentifier>{8B7B9340-7775-BC92-60E2-52A34C7B22FF}</UniqueIdentifier>
     </Filter>
     <Filter Include="Sesame\Platform\Windows">
       <UniqueIdentifier>{71C71EAB-DDFE-6642-E608-CB6552BF8D3B}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\Sesame\Events\MouseEvent.h">
       <Filter>Sesame\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sesame\ImGui\ImGuiLayer.h">
+      <Filter>Sesame\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sesame\Layer.h">
       <Filter>Sesame</Filter>
     </ClInclude>
@@ -46,6 +55,9 @@
     <ClInclude Include="src\Sesame\Log.h">
       <Filter>Sesame</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Sesame\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsWindow.h">
       <Filter>Sesame\Platform\Windows</Filter>
     </ClInclude>
@@ -53,12 +65,13 @@
       <Filter>Sesame</Filter>
     </ClInclude>
     <ClInclude Include="src\ssmpch.h" />
-    <ClInclude Include="src\Sesame\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
       <Filter>Sesame</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\ImGui\ImGuiLayer.cpp">
+      <Filter>Sesame\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\Layer.cpp">
       <Filter>Sesame</Filter>
@@ -69,11 +82,12 @@
     <ClCompile Include="src\Sesame\Log.cpp">
       <Filter>Sesame</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Sesame\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsWindow.cpp">
       <Filter>Sesame\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\ssmpch.cpp" />
-    <ClCompile Include="src\Sesame\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>
