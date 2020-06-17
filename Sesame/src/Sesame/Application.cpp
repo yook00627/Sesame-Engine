@@ -5,9 +5,6 @@
 
 #include <glad/glad.h>
 
-//testing
-#include "Sesame/Input.h"
-
 namespace Sesame {
 
     Application* Application::s_Instance = nullptr;
@@ -34,10 +31,6 @@ namespace Sesame {
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
 
-            //testing
-            auto [x, y] = Input::GetMousePosition();
-            SSM_CORE_TRACE("{0}, {1}", x, y);
-
             m_Window->OnUpdate();
         }
     }
@@ -47,7 +40,7 @@ namespace Sesame {
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<WindowCloseEvent>(SSM_BIND_EVENT_FN(Application::OnWindowClose));
 
-        SSM_CORE_INFO("{0}", e);
+        //SSM_CORE_INFO("{0}", e);
 
         for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
         {

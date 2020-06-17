@@ -67,6 +67,8 @@
     <ClInclude Include="src\ssmpch.h" />
     <ClInclude Include="src\Sesame\Input.h" />
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Sesame\KeyCodes.h" />
+    <ClInclude Include="src\Sesame\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">

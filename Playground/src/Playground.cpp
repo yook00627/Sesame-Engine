@@ -8,12 +8,18 @@ public:
 
     void OnUpdate() override
     {
-        //SSM_INFO("Exmpale for updating Layer");
+        if (Sesame::Input::IsKeyPressed(SSM_KEY_TAB))
+            SSM_TRACE("TAB key is pressed");
     }
 
     void OnEvent(Sesame::Event& event) override
     {
-        SSM_TRACE("{0}", event);
+        //SSM_TRACE("{0}", event);
+        if (event.GetEventType() == Sesame::EventType::KeyPressed)
+        {
+            Sesame::KeyPressedEvent& e = (Sesame::KeyPressedEvent&)event;
+            SSM_TRACE("{0}", (char)e.GetKeyCode());
+        }
     }
 };
 
