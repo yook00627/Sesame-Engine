@@ -65,6 +65,8 @@
       <Filter>Sesame</Filter>
     </ClInclude>
     <ClInclude Include="src\ssmpch.h" />
+    <ClInclude Include="src\Sesame\Input.h" />
+    <ClInclude Include="src\Sesame\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
@@ -89,5 +91,6 @@
       <Filter>Sesame\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\ssmpch.cpp" />
+    <ClCompile Include="src\Sesame\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

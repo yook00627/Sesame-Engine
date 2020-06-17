@@ -158,10 +158,12 @@
     <ClInclude Include="src\Sesame\Events\KeyEvent.h" />
     <ClInclude Include="src\Sesame\Events\MouseEvent.h" />
     <ClInclude Include="src\Sesame\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Sesame\Input.h" />
     <ClInclude Include="src\Sesame\Layer.h" />
     <ClInclude Include="src\Sesame\LayerStack.h" />
     <ClInclude Include="src\Sesame\Log.h" />
     <ClInclude Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Sesame\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sesame\Window.h" />
     <ClInclude Include="src\ssmpch.h" />
@@ -173,6 +175,7 @@
     <ClCompile Include="src\Sesame\LayerStack.cpp" />
     <ClCompile Include="src\Sesame\Log.cpp" />
     <ClCompile Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Sesame\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\ssmpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
