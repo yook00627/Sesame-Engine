@@ -7,3 +7,6 @@
 [submodule "Sesame/vendor/imgui"]
 	path = Sesame/vendor/imgui
 	url = https://github.com/yook00627/imgui
+[submodule "Sesame/vendor/glm"]
+	path = Sesame/vendor/glm
+	url = https://github.com/g-truc/glm

@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Sesame/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sesame/vendor/GLAD/include"
 IncludeDir["ImGui"] = "Sesame/vendor/imgui"
+IncludeDir["glm"] = "Sesame/vendor/glm"
 
 -- Adding extra premake files
 group "Dependencies"
@@ -39,7 +40,9 @@ project "Sesame"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl"
     }
 
     includedirs
@@ -48,7 +51,8 @@ project "Sesame"
         "%{prj.name}/src",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     links
@@ -109,7 +113,8 @@ project "Playground"
     includedirs
     {
         "Sesame/vendor/spdlog/include",
-        "Sesame/src"
+        "Sesame/src",
+        "%{IncludeDir.glm}"
     }
 
     links
