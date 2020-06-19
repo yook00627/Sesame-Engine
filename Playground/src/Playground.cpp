@@ -29,7 +29,6 @@ public:
     Playground()
     {
         PushLayer(new NewLayer());
-        PushOverlay(new Sesame::ImGuiLayer());
     }
 
     ~Playground()

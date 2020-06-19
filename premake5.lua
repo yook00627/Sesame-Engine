@@ -114,6 +114,7 @@ project "Playground"
     {
         "Sesame/vendor/spdlog/include",
         "Sesame/src",
+        "Sesame/vendor"
         "%{IncludeDir.glm}"
     }
 

@@ -6,6 +6,8 @@
 #include "Events/Event.h"
 #include "Sesame/Events/ApplicationEvent.h"
 
+#include "Sesame/ImGui/ImGuiLayer.h"
+
 namespace Sesame {
 
     class SESAME_API Application
@@ -27,6 +29,7 @@ namespace Sesame {
         bool OnWindowClose(WindowCloseEvent& e);
 
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
     private:

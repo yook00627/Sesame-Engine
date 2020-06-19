@@ -164,7 +164,6 @@
     <ClInclude Include="src\Sesame\LayerStack.h" />
     <ClInclude Include="src\Sesame\Log.h" />
     <ClInclude Include="src\Sesame\MouseButtonCodes.h" />
-    <ClInclude Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sesame\Window.h" />
@@ -580,11 +579,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp" />
+    <ClCompile Include="src\Sesame\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Sesame\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Sesame\Layer.cpp" />
     <ClCompile Include="src\Sesame\LayerStack.cpp" />
     <ClCompile Include="src\Sesame\Log.cpp" />
-    <ClCompile Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\ssmpch.cpp">

@@ -16,9 +16,6 @@
     <Filter Include="src\Sesame\Platform">
       <UniqueIdentifier>{4EFD4634-BA5E-2442-43CC-6AF4AF2C5B01}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Sesame\Platform\OpenGL">
-      <UniqueIdentifier>{C2E253D7-AEF2-FFA7-17AC-64C603DBEE40}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Sesame\Platform\Windows">
       <UniqueIdentifier>{8815EC19-F422-1A00-7D09-16EBE915E6B6}</UniqueIdentifier>
     </Filter>
@@ -89,9 +86,6 @@
     </ClInclude>
     <ClInclude Include="src\Sesame\MouseButtonCodes.h">
       <Filter>src\Sesame</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.h">
-      <Filter>src\Sesame\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsInput.h">
       <Filter>src\Sesame\Platform\Windows</Filter>
@@ -1334,6 +1328,9 @@
     <ClCompile Include="src\Sesame\Application.cpp">
       <Filter>src\Sesame</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sesame\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Sesame\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Sesame\ImGui\ImGuiLayer.cpp">
       <Filter>src\Sesame\ImGui</Filter>
     </ClCompile>
@@ -1345,9 +1342,6 @@
     </ClCompile>
     <ClCompile Include="src\Sesame\Log.cpp">
       <Filter>src\Sesame</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Sesame\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <Filter>src\Sesame\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Sesame\Platform\Windows</Filter>
