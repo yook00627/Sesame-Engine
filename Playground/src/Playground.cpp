@@ -1,5 +1,7 @@
 #include <Sesame.h>
 
+#include "imgui/imgui.h"
+
 class NewLayer : public Sesame::Layer
 {
 public:
@@ -10,6 +12,13 @@ public:
     {
         if (Sesame::Input::IsKeyPressed(SSM_KEY_TAB))
             SSM_TRACE("TAB key is pressed");
+    }
+
+    virtual void OnImGuiRender() override
+    {
+        ImGui::Begin("Test");
+        ImGui::Text("Hello World");
+        ImGui::End();
     }
 
     void OnEvent(Sesame::Event& event) override

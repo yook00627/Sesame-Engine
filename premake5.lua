@@ -27,9 +27,10 @@ group ""
 
 project "Sesame"
     location "Sesame"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -44,6 +45,11 @@ project "Sesame"
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
     }
+
+    defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
 
     includedirs
     {
@@ -64,7 +70,6 @@ project "Sesame"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
         
         defines
@@ -74,32 +79,28 @@ project "Sesame"
             "GLFW_INCLUDE_NONE"
         }
 
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Playground/\"")
-        }
-
     filter "configurations:Debug"
         defines "SSM_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "SSM_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "SSM_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 
 project "Playground"
     location "Playground"
     kind "ConsoleApp"
     language "C++"
-    staticruntime "off"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -114,7 +115,7 @@ project "Playground"
     {
         "Sesame/vendor/spdlog/include",
         "Sesame/src",
-        "Sesame/vendor"
+        "Sesame/vendor",
         "%{IncludeDir.glm}"
     }
 
@@ -124,7 +125,6 @@ project "Playground"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
         
         defines
@@ -135,14 +135,14 @@ project "Playground"
     filter "configurations:Debug"
         defines "SSM_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "SSM_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "SSM_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"

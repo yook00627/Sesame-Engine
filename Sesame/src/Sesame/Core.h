@@ -1,10 +1,14 @@
 #pragma once
 
 #ifdef SSM_PLATFORM_WINDOWS
-    #ifdef SSM_BUILD_DLL
-        #define SESAME_API __declspec(dllexport)
+    #ifdef SSM_DYNAMIC_LINK
+        #ifdef SSM_BUILD_DLL
+            #define SESAME_API __declspec(dllexport)
+        #else
+            #define SESAME_API __declspec(dllimport)
+        #endif
     #else
-        #define SESAME_API __declspec(dllimport)
+        #define SESAME_API
     #endif
 #else
     #error This engine only is supported by Windows
