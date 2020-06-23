@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sesame/Window.h"
+#include "Sesame/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -27,6 +28,7 @@ namespace Sesame {
         virtual void Shutdown();
     private:
         GLFWwindow* m_Window;
+        GraphicsContext* m_Context;
 
         struct WindowData
         {

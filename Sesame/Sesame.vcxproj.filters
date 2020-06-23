@@ -1323,6 +1323,8 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sesame\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
@@ -1352,5 +1354,6 @@
     <ClCompile Include="src\ssmpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sesame\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

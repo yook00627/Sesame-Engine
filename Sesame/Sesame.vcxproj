@@ -157,6 +157,8 @@
     <ClInclude Include="src\Sesame\MouseButtonCodes.h" />
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Sesame\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Sesame\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Sesame\Window.h" />
     <ClInclude Include="src\ssmpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -575,6 +577,7 @@
     <ClCompile Include="src\Sesame\Layer.cpp" />
     <ClCompile Include="src\Sesame\LayerStack.cpp" />
     <ClCompile Include="src\Sesame\Log.cpp" />
+    <ClCompile Include="src\Sesame\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\ssmpch.cpp">
