@@ -8,6 +8,9 @@
 
 #include "Sesame/ImGui/ImGuiLayer.h"
 
+//temp
+#include "Sesame/Renderer/Shader.h"
+
 namespace Sesame {
 
     class SESAME_API Application
@@ -34,6 +37,7 @@ namespace Sesame {
         LayerStack m_LayerStack;
 
         unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+        std::unique_ptr<Shader> m_Shader;
     private:
         static Application* s_Instance;
     };

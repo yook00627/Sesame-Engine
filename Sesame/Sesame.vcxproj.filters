@@ -1325,6 +1325,7 @@
     </ClInclude>
     <ClInclude Include="src\Sesame\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Sesame\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
@@ -1355,5 +1356,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Sesame\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>
