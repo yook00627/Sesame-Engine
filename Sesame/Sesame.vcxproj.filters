@@ -1326,6 +1326,9 @@
     <ClInclude Include="src\Sesame\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Sesame\Renderer\Shader.h" />
+    <ClInclude Include="src\Sesame\Renderer\Buffer.h" />
+    <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Sesame\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">
@@ -1357,5 +1360,8 @@
     </ClCompile>
     <ClCompile Include="src\Sesame\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Sesame\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Sesame\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Sesame\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Sesame\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

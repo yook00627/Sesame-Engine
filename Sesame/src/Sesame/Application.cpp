@@ -17,34 +17,29 @@ namespace Sesame {
         m_Window = std::unique_ptr<Window>(Window::Create());
         m_Window->SetEventCallback(SSM_BIND_EVENT_FN(Application::OnEvent));
 
-        m_ImGuiLayer = new ImGuiLayer();
+        m_ImGuiLayer = new ImGuiLayer(); 
         PushOverlay(m_ImGuiLayer);
 
+        // temp just added to see if it runs
         glGenVertexArrays(1, &m_VertexArray);
         glBindVertexArray(m_VertexArray);
 
-        glGenBuffers(1, &m_VertexBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-
-        float verticies[3 * 3] = {
+        float vertices[3 * 3] = {
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
             0.0f, 0.5f, 0.0f
         };
 
-        glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+        m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
-        glGenBuffers(1, &m_IndexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
-
-        unsigned int indicies[3] = { 0, 1 ,2 };
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indicies), indicies, GL_STATIC_DRAW);
+        uint32_t indices[3] = { 0, 1 ,2 };
+        m_IndexBuffer.reset(IndexBuffer::Create(indices, 3));
 
         std::string vertexSrc = R"(
-            #version 410 core
+            #version 460 core
 
             layout(location = 0) in vec3 a_Position;
 
@@ -58,7 +53,7 @@ namespace Sesame {
         )";
 
         std::string fragmentSrc = R"(
-            #version 410 core
+            #version 460 core
 
             layout(location = 0) out vec4 a_Color;
 
@@ -86,7 +81,7 @@ namespace Sesame {
 
             m_Shader->Bind();
             glBindVertexArray(m_VertexArray);
-            glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
