@@ -10,8 +10,8 @@ namespace Sesame {
     {
         switch (Renderer::GetAPI())
         {
-        case RendererAPI::None: SSM_CORE_ASSERT(false, "RednererAPI::None is not supported"); return nullptr;
-        case RendererAPI::OpenGL: return new OpenGLVertexArray();
+        case RendererAPI::API::None: SSM_CORE_ASSERT(false, "RednererAPI::None is not supported"); return nullptr;
+        case RendererAPI::API::OpenGL: return new OpenGLVertexArray();
         }
 
         SSM_CORE_ASSERT(false, "Renderer API is unknown");

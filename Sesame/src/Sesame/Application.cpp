@@ -1,9 +1,7 @@
 #include "ssmpch.h"
 #include "Application.h"
 
-#include "Sesame/Log.h"
-
-#include <glad/glad.h>
+#include "Sesame/Renderer/Renderer.h"
 
 namespace Sesame {
 
@@ -142,16 +140,18 @@ namespace Sesame {
     {
         while (m_Running)
         {
-            glClearColor(0.0f, 0.0f, 0.0f, 1);
-            glClear(GL_COLOR_BUFFER_BIT);
+            RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1 });
+            RenderCommand::Clear();
+
+            Renderer::BeginScene();
 
             m_ShaderSquare->Bind();
-            m_SquareVertexArray->Bind();
-            glDrawElements(GL_TRIANGLES, m_SquareVertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+            Renderer::Submit(m_SquareVertexArray);
 
             m_Shader->Bind();
-            m_VertexArray->Bind();
-            glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+            Renderer::Submit(m_VertexArray);
+
+            Renderer::EndScene();
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();

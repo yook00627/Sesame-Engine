@@ -11,8 +11,8 @@ namespace Sesame {
     {
         switch (Renderer::GetAPI())
         {
-            case RendererAPI::None: SSM_CORE_ASSERT(false, "RednererAPI::None is not supported"); return nullptr;
-            case RendererAPI::OpenGL: return new OpenGLVertexBuffer(vertices, size);
+        case RendererAPI::API::None: SSM_CORE_ASSERT(false, "RednererAPI::None is not supported"); return nullptr;
+            case RendererAPI::API::OpenGL: return new OpenGLVertexBuffer(vertices, size);
         }
 
         SSM_CORE_ASSERT(false, "Renderer API is unknown");
@@ -23,8 +23,8 @@ namespace Sesame {
     {
         switch (Renderer::GetAPI())
         {
-        case RendererAPI::None: SSM_CORE_ASSERT(false, "RednererAPI::None is not supported"); return nullptr;
-        case RendererAPI::OpenGL: return new OpenGLIndexBuffer(indices, size);
+        case RendererAPI::API::None: SSM_CORE_ASSERT(false, "RednererAPI::None is not supported"); return nullptr;
+        case RendererAPI::API::OpenGL: return new OpenGLIndexBuffer(indices, size);
         }
 
         SSM_CORE_ASSERT(false, "Renderer API is unknown");
