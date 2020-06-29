@@ -9,26 +9,6 @@ namespace Sesame {
 
     Application* Application::s_Instance = nullptr;
 
-    static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
-    {
-        switch (type)
-        {
-        case Sesame::ShaderDataType::Float: return GL_FLOAT;
-        case Sesame::ShaderDataType::Float2: return GL_FLOAT;
-        case Sesame::ShaderDataType::Float3: return GL_FLOAT;
-        case Sesame::ShaderDataType::Float4: return GL_FLOAT;
-        case Sesame::ShaderDataType::Mat3: return GL_FLOAT;
-        case Sesame::ShaderDataType::Mat4: return GL_FLOAT;
-        case Sesame::ShaderDataType::Int: return GL_INT;
-        case Sesame::ShaderDataType::Int2: return GL_INT;
-        case Sesame::ShaderDataType::Int3: return GL_INT;
-        case Sesame::ShaderDataType::Int4: return GL_INT;
-        case Sesame::ShaderDataType::Bool: return GL_BOOL;
-        }
-        SSM_CORE_ASSERT(false, "ShaderDataType unkown");
-        return 0;
-    }
-
     Application::Application()
     {
         SSM_ASSERT(!s_Instance, "Application already exists");
@@ -40,9 +20,7 @@ namespace Sesame {
         m_ImGuiLayer = new ImGuiLayer(); 
         PushOverlay(m_ImGuiLayer);
 
-        // temp just added to see if it runs
-        glGenVertexArrays(1, &m_VertexArray);
-        glBindVertexArray(m_VertexArray);
+        m_VertexArray.reset(VertexArray::Create());
 
         float vertices[3 * 7] = {
             -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
@@ -50,34 +28,47 @@ namespace Sesame {
             0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
         };
 
-        m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+        std::shared_ptr<VertexBuffer> vertexBuffer;
+        vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
-        {
-            BufferLayout layout = {
-                { ShaderDataType::Float3, "a_Position" },
-                { ShaderDataType::Float4, "a_Color" },
-            };
+        BufferLayout layout = {
+            { ShaderDataType::Float3, "a_Position" },
+            { ShaderDataType::Float4, "a_Color" },
+        };
 
-            m_VertexBuffer->SetLayout(layout);
-        }
+        vertexBuffer->SetLayout(layout);
+        m_VertexArray->AddVertexBuffer(vertexBuffer);
 
-        uint32_t index = 0;
-        const auto& layout = m_VertexBuffer->GetLayout();
-        for (const auto& element : layout)
-        {
-            glEnableVertexAttribArray(index);
-            glVertexAttribPointer(
-                index, 
-                element.GetComponentCount(), 
-                ShaderDataTypeToOpenGLBaseType(element.Type), 
-                element.Normalized ? GL_TRUE : GL_FALSE, 
-                layout.GetStride(),
-                (const void*)element.Offset);
-            index++;
-        }
+        uint32_t indices[3] = { 0, 1, 2 };
+        std::shared_ptr<IndexBuffer> indexBuffer;
+        indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+        m_VertexArray->SetIndexBuffer(indexBuffer);
 
-        uint32_t indices[3] = { 0, 1 ,2 };
-        m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+
+
+        m_SquareVertexArray.reset(VertexArray::Create());
+
+        float squareVertices[3 * 7] = {
+            -0.65f, -0.65f, 0.0f,
+            0.65f, -0.65f, 0.0f,
+            0.65f, 0.65f, 0.0f,
+            -0.65f, 0.65f, 0.0f
+        };
+
+        std::shared_ptr<VertexBuffer> squareVertexBuffer;
+        squareVertexBuffer.reset(VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+
+        BufferLayout squareLayout = {
+            { ShaderDataType::Float3, "a_Position" }
+        };
+        squareVertexBuffer->SetLayout(squareLayout);
+        m_SquareVertexArray->AddVertexBuffer(squareVertexBuffer);
+
+        uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+        std::shared_ptr<IndexBuffer> squareIndexBuffer;
+        squareIndexBuffer.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+        m_SquareVertexArray->SetIndexBuffer(squareIndexBuffer);
+
 
         std::string vertexSrc = R"(
             #version 460 core
@@ -112,8 +103,36 @@ namespace Sesame {
             }
         )";
 
-        // shader
         m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
+
+        std::string vertexSrcSquare = R"(
+            #version 460 core
+
+            layout(location = 0) in vec3 a_Position;
+
+            out vec3 v_Position;
+            
+            void main()
+            {
+                v_Position = a_Position;
+                gl_Position = vec4(a_Position, 1.0);
+            }
+        )";
+
+        std::string fragmentSrcSquare = R"(
+            #version 460 core
+
+            layout(location = 0) out vec4 color;
+
+            in vec3 v_Position;
+            
+            void main()
+            {
+                color = vec4(v_Position * 0.5 + 0.5, 1.0);
+            }
+        )";
+
+        m_ShaderSquare.reset(new Shader(vertexSrcSquare, fragmentSrcSquare));
     }
     Application::~Application()
     {
@@ -126,9 +145,13 @@ namespace Sesame {
             glClearColor(0.0f, 0.0f, 0.0f, 1);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            m_ShaderSquare->Bind();
+            m_SquareVertexArray->Bind();
+            glDrawElements(GL_TRIANGLES, m_SquareVertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+
             m_Shader->Bind();
-            glBindVertexArray(m_VertexArray);
-            glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+            m_VertexArray->Bind();
+            glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
