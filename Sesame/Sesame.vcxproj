@@ -163,6 +163,7 @@
     <ClInclude Include="src\Sesame\Renderer\Buffer.h" />
     <ClInclude Include="src\Sesame\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Sesame\Renderer\Camera.h" />
     <ClInclude Include="src\Sesame\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Sesame\Renderer\Renderer.h" />
     <ClInclude Include="src\Sesame\Renderer\RendererAPI.h" />
@@ -593,6 +594,7 @@
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Sesame\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sesame\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Sesame\Renderer\Camera.cpp" />
     <ClCompile Include="src\Sesame\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Sesame\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Sesame\Renderer\RendererAPI.cpp" />

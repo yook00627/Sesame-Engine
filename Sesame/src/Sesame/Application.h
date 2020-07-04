@@ -13,6 +13,8 @@
 #include "Sesame/Renderer/Buffer.h"
 #include "Sesame/Renderer/VertexArray.h"
 
+#include "Sesame/Renderer/Camera.h"
+
 
 namespace Sesame {
 
@@ -44,6 +46,8 @@ namespace Sesame {
 
         std::shared_ptr<Shader> m_ShaderSquare;
         std::shared_ptr<VertexArray> m_SquareVertexArray;
+
+        OrthographicCamera m_Camera;
     private:
         static Application* s_Instance;
     };
