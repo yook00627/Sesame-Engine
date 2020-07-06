@@ -8,17 +8,9 @@
 
 #include "Sesame/ImGui/ImGuiLayer.h"
 
-//temp
-#include "Sesame/Renderer/Shader.h"
-#include "Sesame/Renderer/Buffer.h"
-#include "Sesame/Renderer/VertexArray.h"
-
-#include "Sesame/Renderer/Camera.h"
-
-
 namespace Sesame {
 
-    class SESAME_API Application
+    class Application
     {
     public:
         Application();
@@ -40,14 +32,6 @@ namespace Sesame {
         ImGuiLayer* m_ImGuiLayer;
         bool m_Running = true;
         LayerStack m_LayerStack;
-
-        std::shared_ptr<Shader> m_Shader;
-        std::shared_ptr<VertexArray> m_VertexArray;
-
-        std::shared_ptr<Shader> m_ShaderSquare;
-        std::shared_ptr<VertexArray> m_SquareVertexArray;
-
-        OrthographicCamera m_Camera;
     private:
         static Application* s_Instance;
     };
