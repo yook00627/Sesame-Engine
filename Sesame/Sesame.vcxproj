@@ -143,6 +143,7 @@
     <ClInclude Include="src\Sesame.h" />
     <ClInclude Include="src\Sesame\Application.h" />
     <ClInclude Include="src\Sesame\Core.h" />
+    <ClInclude Include="src\Sesame\Core\Timestep.h" />
     <ClInclude Include="src\Sesame\EntryPoint.h" />
     <ClInclude Include="src\Sesame\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Sesame\Events\Event.h" />

@@ -127,21 +127,21 @@ public:
         m_ShaderSquare.reset(new Sesame::Shader(vertexSrcSquare, fragmentSrcSquare));
     }
 
-    void OnUpdate() override
+    void OnUpdate(Sesame::Timestep ts) override
     {
         if (Sesame::Input::IsKeyPressed(SSM_KEY_A))
-            m_CameraPosition.x -= m_CameraMoveSpeed;
+            m_CameraPosition.x -= m_CameraMoveSpeed * ts;
         else if (Sesame::Input::IsKeyPressed(SSM_KEY_D))
-            m_CameraPosition.x += m_CameraMoveSpeed;
+            m_CameraPosition.x += m_CameraMoveSpeed * ts;
         if (Sesame::Input::IsKeyPressed(SSM_KEY_S))
-            m_CameraPosition.y -= m_CameraMoveSpeed;
+            m_CameraPosition.y -= m_CameraMoveSpeed * ts;
         else if (Sesame::Input::IsKeyPressed(SSM_KEY_W))
-            m_CameraPosition.y += m_CameraMoveSpeed;
+            m_CameraPosition.y += m_CameraMoveSpeed * ts;
 
         if (Sesame::Input::IsKeyPressed(SSM_KEY_Q))
-            m_CameraRotation += m_CameraRotationSpeed;
+            m_CameraRotation += m_CameraRotationSpeed * ts;
         if (Sesame::Input::IsKeyPressed(SSM_KEY_E))
-            m_CameraRotation -= m_CameraRotationSpeed;
+            m_CameraRotation -= m_CameraRotationSpeed * ts;
 
         Sesame::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1 });
         Sesame::RenderCommand::Clear();
@@ -190,10 +190,10 @@ private:
     Sesame::OrthographicCamera m_Camera;
 
     glm::vec3 m_CameraPosition;
-    float m_CameraMoveSpeed = 0.1f;
+    float m_CameraMoveSpeed = 5.0f;
 
     float m_CameraRotation = 0.0f;
-    float m_CameraRotationSpeed = 1.0f;
+    float m_CameraRotationSpeed = 45.0f;
 };
 
 class Playground : public Sesame::Application

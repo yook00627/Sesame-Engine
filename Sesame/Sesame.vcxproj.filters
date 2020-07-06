@@ -1335,6 +1335,7 @@
     <ClInclude Include="src\Sesame\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Sesame\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Sesame\Renderer\Camera.h" />
+    <ClInclude Include="src\Sesame\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sesame\Application.cpp">

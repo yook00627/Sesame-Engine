@@ -6,6 +6,8 @@
 #include "Sesame/Layer.h"
 #include "Sesame/Log.h"
 
+#include "Sesame/Core/Timestep.h"
+
 #include "Sesame/Input.h"
 #include "Sesame/KeyCodes.h"
 #include "Sesame/MouseButtonCodes.h"

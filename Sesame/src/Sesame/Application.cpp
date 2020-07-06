@@ -1,6 +1,8 @@
 #include "ssmpch.h"
 #include "Application.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Sesame {
 
     Application* Application::s_Instance = nullptr;
@@ -24,8 +26,12 @@ namespace Sesame {
     {
         while (m_Running)
         {
+            float time = (float)glfwGetTime(); // temp shoud be Platform::GetTime
+            Timestep timestep = time - m_LastFrameTime;
+            m_LastFrameTime = time;
+
             for (Layer* layer : m_LayerStack)
-                layer->OnUpdate();
+                layer->OnUpdate(timestep);
 
             m_ImGuiLayer->Begin();
             for (Layer* layer : m_LayerStack)
