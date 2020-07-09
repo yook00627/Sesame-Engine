@@ -121,10 +121,12 @@ public:
             layout(location = 0) out vec4 color;
 
             in vec3 v_Position;
+
+            uniform vec4 u_Color;
             
             void main()
             {
-                color = vec4(v_Position * 0.5 + 0.5, 1.0);
+                color = u_Color;
             }
         )";
 
@@ -157,12 +159,19 @@ public:
 
         glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+        glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
+        glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
+
         for (int y = 0; y < 20; y++)
         {
             for (int x = 0; x < 20; x++)
             {
                 glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
                 glm::mat4 transfrom = glm::translate(glm::mat4(1.0f), pos) * scale;
+                if (x % 2 == 0)
+                    m_ShaderSquare->UploadUniformFloat4("u_Color", redColor);
+                else
+                    m_ShaderSquare->UploadUniformFloat4("u_Color", blueColor);
                 Sesame::Renderer::Submit(m_ShaderSquare, m_SquareVertexArray, transfrom);
 
             }
