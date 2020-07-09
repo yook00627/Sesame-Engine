@@ -5,7 +5,7 @@
 #include "Sesame/Events/KeyEvent.h"
 #include "Sesame/Events/MouseEvent.h"
 
-#include "Sesame/Platform/OpenGL/OpenGLContext.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Sesame {
 

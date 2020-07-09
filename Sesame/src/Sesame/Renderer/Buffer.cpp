@@ -3,7 +3,7 @@
 
 #include "Renderer.h"
 
-#include "Sesame/Platform/OpenGL/OpenGLBuffer.h"
+#include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Sesame {
 
