@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #ifdef SSM_PLATFORM_WINDOWS
     #ifdef SSM_DYNAMIC_LINK
         #ifdef SSM_BUILD_DLL
@@ -29,3 +31,12 @@
 #define BIT(x) (1 << x)
 
 #define SSM_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+namespace Sesame {
+
+    template<typename T>
+    using Scope = std::unique_ptr<T>;
+
+    template<typename T>
+    using Ref = std::shared_ptr<T>;
+}

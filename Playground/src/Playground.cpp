@@ -21,7 +21,7 @@ public:
             0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
         };
 
-        std::shared_ptr<Sesame::VertexBuffer> vertexBuffer;
+        Sesame::Ref<Sesame::VertexBuffer> vertexBuffer;
         vertexBuffer.reset(Sesame::VertexBuffer::Create(vertices, sizeof(vertices)));
 
         Sesame::BufferLayout layout = {
@@ -33,7 +33,7 @@ public:
         m_VertexArray->AddVertexBuffer(vertexBuffer);
 
         uint32_t indices[3] = { 0, 1, 2 };
-        std::shared_ptr<Sesame::IndexBuffer> indexBuffer;
+        Sesame::Ref<Sesame::IndexBuffer> indexBuffer;
         indexBuffer.reset(Sesame::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
         m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -48,7 +48,7 @@ public:
             -0.5f, 0.5f, 0.0f
         };
 
-        std::shared_ptr<Sesame::VertexBuffer> squareVertexBuffer;
+        Sesame::Ref<Sesame::VertexBuffer> squareVertexBuffer;
         squareVertexBuffer.reset(Sesame::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
         Sesame::BufferLayout squareLayout = {
@@ -58,7 +58,7 @@ public:
         m_SquareVertexArray->AddVertexBuffer(squareVertexBuffer);
 
         uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-        std::shared_ptr<Sesame::IndexBuffer> squareIndexBuffer;
+        Sesame::Ref<Sesame::IndexBuffer> squareIndexBuffer;
         squareIndexBuffer.reset(Sesame::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
         m_SquareVertexArray->SetIndexBuffer(squareIndexBuffer);
 
@@ -208,11 +208,11 @@ public:
     //    return false;
     //}
 private:
-    std::shared_ptr<Sesame::Shader> m_Shader;
-    std::shared_ptr<Sesame::VertexArray> m_VertexArray;
+    Sesame::Ref<Sesame::Shader> m_Shader;
+    Sesame::Ref<Sesame::VertexArray> m_VertexArray;
 
-    std::shared_ptr<Sesame::Shader> m_ShaderSquare;
-    std::shared_ptr<Sesame::VertexArray> m_SquareVertexArray;
+    Sesame::Ref<Sesame::Shader> m_ShaderSquare;
+    Sesame::Ref<Sesame::VertexArray> m_SquareVertexArray;
 
     Sesame::OrthographicCamera m_Camera;
 
