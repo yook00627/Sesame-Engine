@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Sesame/vendor/GLFW/include"
 IncludeDir["Glad"] = "Sesame/vendor/GLAD/include"
 IncludeDir["ImGui"] = "Sesame/vendor/imgui"
 IncludeDir["glm"] = "Sesame/vendor/glm"
+IncludeDir["stb_image"] = "Sesame/vendor/stb_image"
 
 -- Adding extra premake files
 group "Dependencies"
@@ -42,6 +43,8 @@ project "Sesame"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.h",
+        "%{prj.name}/vendor/stb_image/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
     }
@@ -58,7 +61,8 @@ project "Sesame"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb_image}"
     }
 
     links

@@ -21,6 +21,7 @@
 #include "Sesame/Renderer/Buffer.h"
 #include "Sesame/Renderer/VertexArray.h"
 #include "Sesame/Renderer/Shader.h"
+#include "Sesame/Renderer/Texture.h"
 
 #include "Sesame/Renderer/Camera.h"
 

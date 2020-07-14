@@ -15,7 +15,7 @@ public:
     {
         m_VertexArray.reset(Sesame::VertexArray::Create());
 
-        float vertices[3 * 7] = {
+        float vertices[7 * 3] = {
             -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
             0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,
             0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
@@ -41,18 +41,19 @@ public:
 
         m_SquareVertexArray.reset(Sesame::VertexArray::Create());
 
-        float squareVertices[3 * 7] = {
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            0.5f, 0.5f, 0.0f,
-            -0.5f, 0.5f, 0.0f
+        float squareVertices[5 * 4] = {
+            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+            0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+            0.5f, 0.5f, 0.0f, 1.0f, 1.0f,
+            -0.5f, 0.5f, 0.0f, 0.0f, 1.0f
         };
 
         Sesame::Ref<Sesame::VertexBuffer> squareVertexBuffer;
         squareVertexBuffer.reset(Sesame::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
         Sesame::BufferLayout squareLayout = {
-            { Sesame::ShaderDataType::Float3, "a_Position" }
+            { Sesame::ShaderDataType::Float3, "a_Position" },
+            { Sesame::ShaderDataType::Float2, "a_TexCord" }
         };
         squareVertexBuffer->SetLayout(squareLayout);
         m_SquareVertexArray->AddVertexBuffer(squareVertexBuffer);
@@ -134,6 +135,46 @@ public:
         )";
 
         m_ShaderSquare.reset(Sesame::Shader::Create(vertexSrcSquare, fragmentSrcSquare));
+
+        std::string vertexSrcTexture = R"(
+            #version 460 core
+
+            layout(location = 0) in vec3 a_Position;
+            layout(location = 1) in vec2 a_TexCord;
+
+            uniform mat4 u_ViewProjection;
+            uniform mat4 u_Transform;
+
+            out vec2 v_TexCord;
+            
+            void main()
+            {
+                v_TexCord = a_TexCord;
+                gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+            }
+        )";
+
+        std::string fragmentSrcTexture = R"(
+            #version 460 core
+
+            layout(location = 0) out vec4 color;
+
+            in vec2 v_TexCord;
+
+            uniform sampler2D u_Texture;
+            
+            void main()
+            {
+                color = texture(u_Texture, v_TexCord);
+            }
+        )";
+
+        m_TextureShader.reset(Sesame::Shader::Create(vertexSrcTexture, fragmentSrcTexture));
+
+        m_Texture = Sesame::Texture2D::Create("assets/textures/default.png");
+
+        std::dynamic_pointer_cast<Sesame::OpenGLShader>(m_TextureShader)->Bind();
+        std::dynamic_pointer_cast<Sesame::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
     }
 
     void OnUpdate(Sesame::Timestep ts) override
@@ -176,7 +217,11 @@ public:
             }
         }
 
-        Sesame::Renderer::Submit(m_Shader, m_VertexArray);
+        m_Texture->Bind();
+        Sesame::Renderer::Submit(m_TextureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+        // Triangle
+        // Sesame::Renderer::Submit(m_Shader, m_VertexArray);
 
         Sesame::Renderer::EndScene();
     }
@@ -211,8 +256,10 @@ private:
     Sesame::Ref<Sesame::Shader> m_Shader;
     Sesame::Ref<Sesame::VertexArray> m_VertexArray;
 
-    Sesame::Ref<Sesame::Shader> m_ShaderSquare;
+    Sesame::Ref<Sesame::Shader> m_ShaderSquare, m_TextureShader;
     Sesame::Ref<Sesame::VertexArray> m_SquareVertexArray;
+
+    Sesame::Ref<Sesame::Texture2D> m_Texture;
 
     Sesame::OrthographicCamera m_Camera;
 
