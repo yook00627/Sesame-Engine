@@ -9,6 +9,7 @@
 #include "Sesame/Core/Timestep.h"
 
 #include "Sesame/ImGui/ImGuiLayer.h"
+#include "Sesame/Renderer/Renderer.h"
 
 namespace Sesame {
 
