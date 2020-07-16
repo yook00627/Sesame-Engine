@@ -100,7 +100,7 @@ public:
             }
         )";
 
-        m_Shader.reset(Sesame::Shader::Create(vertexSrc, fragmentSrc));
+        m_Shader = Sesame::Shader::Create("TriangleShader", vertexSrc, fragmentSrc);
 
         std::string vertexSrcSquare = R"(
             #version 460 core
@@ -134,15 +134,15 @@ public:
             }
         )";
 
-        m_ShaderSquare.reset(Sesame::Shader::Create(vertexSrcSquare, fragmentSrcSquare));
+        m_ShaderSquare = Sesame::Shader::Create("ShaderSquare",vertexSrcSquare, fragmentSrcSquare);
 
-        m_TextureShader.reset(Sesame::Shader::Create("assets/shaders/Texture.glsl"));
+        auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
         m_Texture = Sesame::Texture2D::Create("assets/textures/default.png");
         m_Sonic = Sesame::Texture2D::Create("assets/textures/sonic.png");
 
-        std::dynamic_pointer_cast<Sesame::OpenGLShader>(m_TextureShader)->Bind();
-        std::dynamic_pointer_cast<Sesame::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+        std::dynamic_pointer_cast<Sesame::OpenGLShader>(textureShader)->Bind();
+        std::dynamic_pointer_cast<Sesame::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
     }
 
     void OnUpdate(Sesame::Timestep ts) override
@@ -185,11 +185,13 @@ public:
             }
         }
 
+        auto textureShader = m_ShaderLibrary.Get("Texture");
+
         m_Texture->Bind();
-        Sesame::Renderer::Submit(m_TextureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+        Sesame::Renderer::Submit(textureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
         m_Sonic->Bind();
-        Sesame::Renderer::Submit(m_TextureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+        Sesame::Renderer::Submit(textureShader, m_SquareVertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
         // Triangle
         // Sesame::Renderer::Submit(m_Shader, m_VertexArray);
@@ -224,10 +226,11 @@ public:
     //    return false;
     //}
 private:
+    Sesame::ShaderLibrary m_ShaderLibrary;
     Sesame::Ref<Sesame::Shader> m_Shader;
     Sesame::Ref<Sesame::VertexArray> m_VertexArray;
 
-    Sesame::Ref<Sesame::Shader> m_ShaderSquare, m_TextureShader;
+    Sesame::Ref<Sesame::Shader> m_ShaderSquare;
     Sesame::Ref<Sesame::VertexArray> m_SquareVertexArray;
 
     Sesame::Ref<Sesame::Texture2D> m_Texture;
