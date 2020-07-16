@@ -93,7 +93,7 @@ namespace Sesame {
 	std::string OpenGLShader::ReadFile(const std::string& filepath)
 	{
 		std::string result;
-		std::ifstream in(filepath, std::ios::in, std::ios::binary);
+		std::ifstream in(filepath, std::ios::in | std::ios::binary);
 		if (in)
 		{
 			in.seekg(0, std::ios::end);
@@ -138,7 +138,9 @@ namespace Sesame {
 		// Copied from https://www.khronos.org/opengl/wiki/Shader_Compilation
 		// shader example for openGL modified
 		GLuint program = glCreateProgram();
-		std::vector<GLenum> glShaderIDs(shaderSources.size());
+		SSM_CORE_ASSERT(shaderSources.size() <= 2, "Must be less than or equal to 2");
+		std::array<GLenum, 2> glShaderIDs;
+		int glShaderIDINdex = 0;
 		for (auto& kv : shaderSources)
 		{
 			GLenum type = kv.first;
@@ -169,7 +171,7 @@ namespace Sesame {
 			}
 
 			glAttachShader(program, shader);
-			glShaderIDs.push_back(shader);
+			glShaderIDs[glShaderIDINdex++] = shader;
 		}
 
 		m_RendererID = program;
