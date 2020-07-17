@@ -11,7 +11,7 @@ class NewLayer : public Sesame::Layer
 {
 public:
     NewLayer()
-        : Layer("New"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+        : Layer("New"), m_CameraController(1280.0f / 720.0f, true)
     {
         m_VertexArray.reset(Sesame::VertexArray::Create());
 
@@ -36,8 +36,6 @@ public:
         Sesame::Ref<Sesame::IndexBuffer> indexBuffer;
         indexBuffer.reset(Sesame::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
         m_VertexArray->SetIndexBuffer(indexBuffer);
-
-
 
         m_SquareVertexArray.reset(Sesame::VertexArray::Create());
 
@@ -147,27 +145,14 @@ public:
 
     void OnUpdate(Sesame::Timestep ts) override
     {
-        if (Sesame::Input::IsKeyPressed(SSM_KEY_A))
-            m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-        else if (Sesame::Input::IsKeyPressed(SSM_KEY_D))
-            m_CameraPosition.x += m_CameraMoveSpeed * ts;
-        if (Sesame::Input::IsKeyPressed(SSM_KEY_S))
-            m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-        else if (Sesame::Input::IsKeyPressed(SSM_KEY_W))
-            m_CameraPosition.y += m_CameraMoveSpeed * ts;
+        //Update
+        m_CameraController.OnUpdate(ts);
 
-        if (Sesame::Input::IsKeyPressed(SSM_KEY_Q))
-            m_CameraRotation += m_CameraRotationSpeed * ts;
-        if (Sesame::Input::IsKeyPressed(SSM_KEY_E))
-            m_CameraRotation -= m_CameraRotationSpeed * ts;
-
+        //Render
         Sesame::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1 });
         Sesame::RenderCommand::Clear();
 
-        m_Camera.SetPosition(m_CameraPosition);
-        m_Camera.SetRotation(m_CameraRotation);
-
-        Sesame::Renderer::BeginScene(m_Camera);
+        Sesame::Renderer::BeginScene(m_CameraController.GetCamera());
 
         glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -206,8 +191,9 @@ public:
         ImGui::End();
     }
 
-    void OnEvent(Sesame::Event& event) override
+    void OnEvent(Sesame::Event& e) override
     {
+        m_CameraController.OnEvent(e);
         //Sesame::EventDispatcher dispatcher(event);
         //dispatcher.Dispatch<Sesame::KeyPressedEvent>(SSM_BIND_EVENT_FN(NewLayer::OnKeyPressedEvent));
     }
@@ -236,14 +222,7 @@ private:
     Sesame::Ref<Sesame::Texture2D> m_Texture;
     Sesame::Ref<Sesame::Texture2D> m_Sonic;
 
-    Sesame::OrthographicCamera m_Camera;
-
-    glm::vec3 m_CameraPosition;
-    float m_CameraMoveSpeed = 5.0f;
-
-    float m_CameraRotation = 0.0f;
-    float m_CameraRotationSpeed = 45.0f;
-
+    Sesame::OrthographicCameraController m_CameraController;
     glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 

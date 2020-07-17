@@ -11,6 +11,7 @@
 #include "Sesame/Input.h"
 #include "Sesame/KeyCodes.h"
 #include "Sesame/MouseButtonCodes.h"
+#include "Sesame/CameraController.h"
 
 #include "Sesame/ImGui/ImGuiLayer.h"
 

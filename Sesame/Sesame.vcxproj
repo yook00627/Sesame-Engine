@@ -150,6 +150,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Sesame.h" />
     <ClInclude Include="src\Sesame\Application.h" />
+    <ClInclude Include="src\Sesame\CameraController.h" />
     <ClInclude Include="src\Sesame\Core.h" />
     <ClInclude Include="src\Sesame\Core\Timestep.h" />
     <ClInclude Include="src\Sesame\EntryPoint.h" />
@@ -595,6 +596,7 @@
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Sesame\Application.cpp" />
+    <ClCompile Include="src\Sesame\CameraController.cpp" />
     <ClCompile Include="src\Sesame\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Sesame\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Sesame\Layer.cpp" />
