@@ -1,8 +1,8 @@
 #include "ssmpch.h"
 #include "CameraController.h"
 
-#include "Sesame/Input.h"
-#include "Sesame/KeyCodes.h"
+#include "Sesame/Core/Input.h"
+#include "Sesame/Core/KeyCodes.h"
 
 namespace Sesame {
 

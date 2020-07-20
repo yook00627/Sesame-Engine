@@ -81,17 +81,38 @@
     <ClInclude Include="src\Sesame.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sesame\Application.h">
-      <Filter>src\Sesame</Filter>
+    <ClInclude Include="src\Sesame\Core\Application.h">
+      <Filter>src\Sesame\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sesame\Core.h">
-      <Filter>src\Sesame</Filter>
+    <ClInclude Include="src\Sesame\Core\Core.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\EntryPoint.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\Input.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\KeyCodes.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\Layer.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\LayerStack.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\Log.h">
+      <Filter>src\Sesame\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Core\MouseButtonCodes.h">
+      <Filter>src\Sesame\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sesame\Core\Timestep.h">
       <Filter>src\Sesame\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sesame\EntryPoint.h">
-      <Filter>src\Sesame</Filter>
+    <ClInclude Include="src\Sesame\Core\Window.h">
+      <Filter>src\Sesame\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Sesame\Events\ApplicationEvent.h">
       <Filter>src\Sesame\Events</Filter>
@@ -108,28 +129,13 @@
     <ClInclude Include="src\Sesame\ImGui\ImGuiLayer.h">
       <Filter>src\Sesame\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sesame\Input.h">
-      <Filter>src\Sesame</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\KeyCodes.h">
-      <Filter>src\Sesame</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\Layer.h">
-      <Filter>src\Sesame</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\LayerStack.h">
-      <Filter>src\Sesame</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\Log.h">
-      <Filter>src\Sesame</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\MouseButtonCodes.h">
-      <Filter>src\Sesame</Filter>
-    </ClInclude>
     <ClInclude Include="src\Sesame\Renderer\Buffer.h">
       <Filter>src\Sesame\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sesame\Renderer\Camera.h">
+      <Filter>src\Sesame\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sesame\Renderer\CameraController.h">
       <Filter>src\Sesame\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Sesame\Renderer\GraphicsContext.h">
@@ -152,9 +158,6 @@
     </ClInclude>
     <ClInclude Include="src\Sesame\Renderer\VertexArray.h">
       <Filter>src\Sesame\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Sesame\Window.h">
-      <Filter>src\Sesame</Filter>
     </ClInclude>
     <ClInclude Include="src\ssmpch.h">
       <Filter>src</Filter>
@@ -1386,7 +1389,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\Sesame\CameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -1413,8 +1415,17 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sesame\Application.cpp">
-      <Filter>src\Sesame</Filter>
+    <ClCompile Include="src\Sesame\Core\Application.cpp">
+      <Filter>src\Sesame\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\Core\Layer.cpp">
+      <Filter>src\Sesame\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\Core\LayerStack.cpp">
+      <Filter>src\Sesame\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\Core\Log.cpp">
+      <Filter>src\Sesame\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\ImGui\ImGuiBuild.cpp">
       <Filter>src\Sesame\ImGui</Filter>
@@ -1422,19 +1433,13 @@
     <ClCompile Include="src\Sesame\ImGui\ImGuiLayer.cpp">
       <Filter>src\Sesame\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sesame\Layer.cpp">
-      <Filter>src\Sesame</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Sesame\LayerStack.cpp">
-      <Filter>src\Sesame</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Sesame\Log.cpp">
-      <Filter>src\Sesame</Filter>
-    </ClCompile>
     <ClCompile Include="src\Sesame\Renderer\Buffer.cpp">
       <Filter>src\Sesame\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\Renderer\Camera.cpp">
+      <Filter>src\Sesame\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sesame\Renderer\CameraController.cpp">
       <Filter>src\Sesame\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Sesame\Renderer\RenderCommand.cpp">
@@ -1461,6 +1466,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\Sesame\CameraController.cpp" />
   </ItemGroup>
 </Project>

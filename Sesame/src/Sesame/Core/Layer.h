@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Sesame/Core.h"
-#include "Core/Timestep.h"
+#include "Sesame/Core/Core.h"
+#include "Sesame/Core/Timestep.h"
 #include "Sesame/Events/Event.h"
 
 namespace Sesame {

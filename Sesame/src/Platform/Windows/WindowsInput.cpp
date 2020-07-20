@@ -1,7 +1,7 @@
 #include "ssmpch.h"
 #include "WindowsInput.h"
 
-#include "Sesame/Application.h"
+#include "Sesame/Core/Application.h"
 
 #include <GLFW/glfw3.h>
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Renderer/Camera.h"
+#include "Sesame/Renderer/Camera.h"
 #include "Sesame/Core/Timestep.h"
 
 #include "Sesame/Events/ApplicationEvent.h"

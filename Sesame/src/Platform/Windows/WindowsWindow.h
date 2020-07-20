@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sesame/Window.h"
+#include "Sesame/Core/Window.h"
 #include "Sesame/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

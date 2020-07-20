@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sesame/Input.h"
+#include "Sesame/Core/Input.h"
 
 namespace Sesame {
 

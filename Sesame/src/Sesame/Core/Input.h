@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sesame/Core.h"
+#include "Sesame/Core/Core.h"
 
 namespace Sesame {
 

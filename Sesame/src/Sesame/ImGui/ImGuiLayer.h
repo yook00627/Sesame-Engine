@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Sesame/Layer.h"
+#include "Sesame/Core/Layer.h"
 #include "Sesame/Events/MouseEvent.h"
 #include "Sesame/Events/KeyEvent.h"
 #include "Sesame/Events/ApplicationEvent.h"

@@ -2,16 +2,16 @@
 
 // For used by Applications
 
-#include "Sesame/Application.h"
-#include "Sesame/Layer.h"
-#include "Sesame/Log.h"
+#include "Sesame/Core/Application.h"
+#include "Sesame/Core/Layer.h"
+#include "Sesame/Core/Log.h"
 
 #include "Sesame/Core/Timestep.h"
 
-#include "Sesame/Input.h"
-#include "Sesame/KeyCodes.h"
-#include "Sesame/MouseButtonCodes.h"
-#include "Sesame/CameraController.h"
+#include "Sesame/Core/Input.h"
+#include "Sesame/Core/KeyCodes.h"
+#include "Sesame/Core/MouseButtonCodes.h"
+#include "Sesame/Renderer/CameraController.h"
 
 #include "Sesame/ImGui/ImGuiLayer.h"
 
@@ -27,4 +27,4 @@
 #include "Sesame/Renderer/Camera.h"
 
 //Entry Point
-#include "Sesame/EntryPoint.h"
+#include "Sesame/Core/EntryPoint.h"
