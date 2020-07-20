@@ -132,11 +132,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Playground.cpp" />
+    <ClCompile Include="src\Playground2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sesame\Sesame.vcxproj">
       <Project>{8396DFD0-6F38-0AA7-58F3-1DFB443491F7}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Playground2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

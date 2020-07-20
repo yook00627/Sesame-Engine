@@ -1,4 +1,6 @@
 #include <Sesame.h>
+//Entry Point
+#include "Sesame/Core/EntryPoint.h"
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,13 +9,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Playground2D.h"
+
 class NewLayer : public Sesame::Layer
 {
 public:
     NewLayer()
         : Layer("New"), m_CameraController(1280.0f / 720.0f, true)
     {
-        m_VertexArray.reset(Sesame::VertexArray::Create());
+        m_VertexArray = Sesame::VertexArray::Create();
 
         float vertices[7 * 3] = {
             -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
@@ -37,7 +41,7 @@ public:
         indexBuffer.reset(Sesame::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
         m_VertexArray->SetIndexBuffer(indexBuffer);
 
-        m_SquareVertexArray.reset(Sesame::VertexArray::Create());
+        m_SquareVertexArray = Sesame::VertexArray::Create();
 
         float squareVertices[5 * 4] = {
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -231,7 +235,8 @@ class Playground : public Sesame::Application
 public:
     Playground()
     {
-        PushLayer(new NewLayer());
+        //PushLayer(new NewLayer());
+        PushLayer(new Playground2D());
     }
 
     ~Playground()

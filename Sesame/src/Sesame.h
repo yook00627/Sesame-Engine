@@ -26,5 +26,3 @@
 
 #include "Sesame/Renderer/Camera.h"
 
-//Entry Point
-#include "Sesame/Core/EntryPoint.h"
