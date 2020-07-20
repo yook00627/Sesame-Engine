@@ -9,6 +9,11 @@ workspace "Sesame"
         "Dist"
     }
 
+    flags
+	{
+		"MultiProcessorCompile"
+	}
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Adding include paths relative to root folder

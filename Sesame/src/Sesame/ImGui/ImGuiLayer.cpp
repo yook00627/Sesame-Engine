@@ -16,8 +16,6 @@ namespace Sesame {
     ImGuiLayer::ImGuiLayer()
         : Layer("ImGuiLayer") {}
 
-    ImGuiLayer::~ImGuiLayer() {}
-
     void ImGuiLayer::OnAttach()
     {
         // copied from opengl3 example from imgui
