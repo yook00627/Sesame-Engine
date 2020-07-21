@@ -1,6 +1,5 @@
 #include <Sesame.h>
-//Entry Point
-#include "Sesame/Core/EntryPoint.h"
+#include <Sesame/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 

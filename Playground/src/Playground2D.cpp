@@ -13,30 +13,6 @@ Playground2D::Playground2D()
 
 void Playground2D::OnAttach()
 {
-    m_VertexArray = Sesame::VertexArray::Create();
-
-    float vertices[5 * 4] = {
-        -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f, 
-        0.5f, 0.5f, 0.0f, 
-        -0.5f, 0.5f, 0.0f
-    };
-
-    Sesame::Ref<Sesame::VertexBuffer> vertexBuffer;
-    vertexBuffer.reset(Sesame::VertexBuffer::Create(vertices, sizeof(vertices)));
-
-    Sesame::BufferLayout layout = {
-        { Sesame::ShaderDataType::Float3, "a_Position" }
-    };
-    vertexBuffer->SetLayout(layout);
-    m_VertexArray->AddVertexBuffer(vertexBuffer);
-
-    uint32_t indices[6] = { 0, 1, 2, 2, 3, 0 };
-    Sesame::Ref<Sesame::IndexBuffer> indexBuffer;
-    indexBuffer.reset(Sesame::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-    m_VertexArray->SetIndexBuffer(indexBuffer);
-
-    m_SquareShader = Sesame::Shader::Create("assets/shaders/FlatColor.glsl");
 }
 
 void Playground2D::OnDetach()
@@ -52,14 +28,9 @@ void Playground2D::OnUpdate(Sesame::Timestep ts)
     Sesame::RenderCommand::SetClearColor({ 0.0f, 0.0f, 0.0f, 1 });
     Sesame::RenderCommand::Clear();
 
-    Sesame::Renderer::BeginScene(m_CameraController.GetCamera());
-
-    std::dynamic_pointer_cast<Sesame::OpenGLShader>(m_SquareShader)->Bind();
-    std::dynamic_pointer_cast<Sesame::OpenGLShader>(m_SquareShader)->UploadUniformFloat4("u_Color", m_SquareColor);
-
-    Sesame::Renderer::Submit(m_SquareShader, m_VertexArray, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-
-    Sesame::Renderer::EndScene();
+    Sesame::Renderer2D::BeginScene(m_CameraController.GetCamera());
+    Sesame::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, {0.4f, 0.2f, 0.3f, 1.0f});
+    Sesame::Renderer2D::EndScene();
 }
 
 void Playground2D::OnImGuiRender()

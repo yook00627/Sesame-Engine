@@ -17,6 +17,7 @@
 
 //Renderer 
 #include "Sesame/Renderer/Renderer.h"
+#include "Sesame/Renderer/Renderer2D.h"
 #include "Sesame/Renderer/RenderCommand.h"
 
 #include "Sesame/Renderer/Buffer.h"
