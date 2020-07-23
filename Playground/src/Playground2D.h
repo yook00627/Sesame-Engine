@@ -21,5 +21,7 @@ private:
     Sesame::Ref<Sesame::VertexArray> m_VertexArray;
     Sesame::Ref<Sesame::Shader> m_SquareShader;
 
+    Sesame::Ref<Sesame::Texture2D> m_DefaultTexture;
+
     glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };

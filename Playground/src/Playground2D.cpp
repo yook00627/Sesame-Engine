@@ -11,6 +11,7 @@ Playground2D::Playground2D()
 
 void Playground2D::OnAttach()
 {
+    m_DefaultTexture = Sesame::Texture2D::Create("assets/textures/default.png");
 }
 
 void Playground2D::OnDetach()
@@ -27,8 +28,9 @@ void Playground2D::OnUpdate(Sesame::Timestep ts)
     Sesame::RenderCommand::Clear();
 
     Sesame::Renderer2D::BeginScene(m_CameraController.GetCamera());
-    Sesame::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, {0.4f, 0.2f, 0.3f, 1.0f});
-    Sesame::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.70f }, { 0.1f, 0.8f, 0.3f, 1.0f });
+    Sesame::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, m_SquareColor);
+    Sesame::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.7f }, { 0.1f, 0.8f, 0.3f, 1.0f });
+    Sesame::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_DefaultTexture);
     Sesame::Renderer2D::EndScene();
 }
 
