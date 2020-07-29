@@ -14,6 +14,8 @@
 
 #include "Sesame/Core/Log.h"
 
+#include "Sesame/Debug/Instrumentor.h"
+
 #ifdef SSM_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

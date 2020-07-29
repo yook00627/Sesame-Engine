@@ -160,6 +160,7 @@
     <ClInclude Include="src\Sesame\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Sesame\Core\Timestep.h" />
     <ClInclude Include="src\Sesame\Core\Window.h" />
+    <ClInclude Include="src\Sesame\Debug\Instrumentor.h" />
     <ClInclude Include="src\Sesame\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Sesame\Events\Event.h" />
     <ClInclude Include="src\Sesame\Events\KeyEvent.h" />

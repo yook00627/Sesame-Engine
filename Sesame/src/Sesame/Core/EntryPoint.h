@@ -7,13 +7,18 @@ extern Sesame::Application* Sesame::CreateApplication();
 int main(int argc, char** argv)
 {
     Sesame::Log::Init();
-    SSM_CORE_WARN("Getting ready");
-    int a = 11;
-    SSM_CORE_INFO("client number: {0}", a);
 
+    SSM_PROFILE_BEGIN_SESSION("Starting", "SesameProfile_Startup.json");
     auto app = Sesame::CreateApplication();
+    SSM_PROFILE_END_SESSION();
+
+    SSM_PROFILE_BEGIN_SESSION("Starting", "SesameProfile_Runtime.json");
     app->Run();
+    SSM_PROFILE_END_SESSION();
+
+    SSM_PROFILE_BEGIN_SESSION("Starting", "SesameProfile_Shutdown.json");
     delete app;
+    SSM_PROFILE_END_SESSION();
 }
 
 #endif
