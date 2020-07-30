@@ -15,6 +15,8 @@ namespace Sesame {
 
     void OpenGLContext::Init()
     {
+        SSM_PROFILE_FUNCTION();
+
         glfwMakeContextCurrent(m_WindowHandle);
         int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
         SSM_CORE_ASSERT(status, "Failed to initialize Glad");
@@ -26,6 +28,8 @@ namespace Sesame {
 
     void OpenGLContext::SwapBuffers()
     {
+        SSM_PROFILE_FUNCTION();
+
         glfwSwapBuffers(m_WindowHandle);
     }
 }

@@ -11,11 +11,14 @@ Playground2D::Playground2D()
 
 void Playground2D::OnAttach()
 {
+    SSM_PROFILE_FUNCTION();
+
     m_DefaultTexture = Sesame::Texture2D::Create("assets/textures/default.png");
 }
 
 void Playground2D::OnDetach()
 {
+    SSM_PROFILE_FUNCTION();
 }
 
 void Playground2D::OnUpdate(Sesame::Timestep ts)
@@ -23,10 +26,7 @@ void Playground2D::OnUpdate(Sesame::Timestep ts)
     SSM_PROFILE_FUNCTION();
 
     //Update
-    {
-        SSM_PROFILE_SCOPE("CameraController::OnUpdate");
-        m_CameraController.OnUpdate(ts);
-    }
+    m_CameraController.OnUpdate(ts);
 
     //Render
     {

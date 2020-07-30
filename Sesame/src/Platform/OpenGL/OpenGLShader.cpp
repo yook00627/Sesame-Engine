@@ -20,6 +20,8 @@ namespace Sesame {
 
 	OpenGLShader::OpenGLShader(const std::string& filepath)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		std::string source = ReadFile(filepath);
 		auto shaderSource = PreProcess(source);
 		Compile(shaderSource);
@@ -35,6 +37,8 @@ namespace Sesame {
 	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 		: m_Name(name)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> shaderSource;
 		shaderSource[GL_VERTEX_SHADER] = vertexSrc;
 		shaderSource[GL_FRAGMENT_SHADER] = fragmentSrc;
@@ -43,36 +47,50 @@ namespace Sesame {
 
 	OpenGLShader::~OpenGLShader()
 	{
+		SSM_PROFILE_FUNCTION();
+
 		glDeleteProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Bind() const
 	{
+		SSM_PROFILE_FUNCTION();
+
 		glUseProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Unbind() const
 	{
+		SSM_PROFILE_FUNCTION();
+
 		glUseProgram(0);
 	}
 
 	void OpenGLShader::SetInt(const std::string& name, int value)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		UploadUniformInt(name, value);
 	}
 
 	void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& value)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		UploadUniformFloat3(name, value);
 	}
 
 	void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& value)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		UploadUniformFloat4(name, value);
 	}
 
 	void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& value)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		UploadUniformMat4(name, value);
 	}
 
@@ -120,6 +138,8 @@ namespace Sesame {
 
 	std::string OpenGLShader::ReadFile(const std::string& filepath)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		std::string result;
 		std::ifstream in(filepath, std::ios::in | std::ios::binary);
 		if (in)
@@ -140,6 +160,8 @@ namespace Sesame {
 
 	std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> shaderSource;
 
 		const char* typeToken = "#type";
@@ -163,6 +185,8 @@ namespace Sesame {
 
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
+		SSM_PROFILE_FUNCTION();
+
 		// Copied from https://www.khronos.org/opengl/wiki/Shader_Compilation
 		// shader example for openGL modified
 		GLuint program = glCreateProgram();

@@ -1,1 +1,1 @@
-{"otherData": {},"traceEvents":[]}
+{"otherData": {},"traceEvents":[{"cat":"function","dur":3,"name":"__cdecl Sesame::OpenGLTexture2D::~OpenGLTexture2D(void)","ph":"X","pid":0,"tid":2945216961,"ts":1103075105965},{"cat":"function","dur":18741,"name":"void __cdecl Sesame::WindowsWindow::Shutdown(void)","ph":"X","pid":0,"tid":2945216961,"ts":1103075106048},{"cat":"function","dur":18873,"name":"__cdecl Sesame::WindowsWindow::~WindowsWindow(void)","ph":"X","pid":0,"tid":2945216961,"ts":1103075106047}]}

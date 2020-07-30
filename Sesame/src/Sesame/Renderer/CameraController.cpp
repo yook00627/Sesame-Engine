@@ -13,6 +13,8 @@ namespace Sesame {
 
     void OrthographicCameraController::OnUpdate(Timestep ts)
     {
+        SSM_PROFILE_FUNCTION();
+
         if (Input::IsKeyPressed(SSM_KEY_A))
             m_CameraPosition.x -= m_CameraTranslationSpeed * ts;
         else if (Input::IsKeyPressed(SSM_KEY_D))
@@ -39,6 +41,8 @@ namespace Sesame {
 
     void OrthographicCameraController::OnEvent(Event& e)
     {
+        SSM_PROFILE_FUNCTION();
+
         EventDispatcher dispatcher(e);
         dispatcher.Dispatch<MouseScrolledEvent>(SSM_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
         dispatcher.Dispatch<WindowResizeEvent>(SSM_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
@@ -46,6 +50,8 @@ namespace Sesame {
 
     bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
     {
+        SSM_PROFILE_FUNCTION();
+
         m_ZoomLevel -= e.GetYOffset() * 0.25f;
         m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
         m_ZoomLevel = std::min(m_ZoomLevel, 10.0f);
@@ -55,6 +61,8 @@ namespace Sesame {
 
     bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
     {
+        SSM_PROFILE_FUNCTION();
+
         m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
         m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
         return false;

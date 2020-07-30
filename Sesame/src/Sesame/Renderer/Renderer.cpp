@@ -10,6 +10,8 @@ namespace Sesame {
 
     void Renderer::Init()
     {
+        SSM_PROFILE_FUNCTION();
+
         RenderCommand::Init();
         Renderer2D::Init();
     }
