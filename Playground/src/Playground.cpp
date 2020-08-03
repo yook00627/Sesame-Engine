@@ -24,8 +24,7 @@ public:
             0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
         };
 
-        Sesame::Ref<Sesame::VertexBuffer> vertexBuffer;
-        vertexBuffer.reset(Sesame::VertexBuffer::Create(vertices, sizeof(vertices)));
+        Sesame::Ref<Sesame::VertexBuffer> vertexBuffer = Sesame::VertexBuffer::Create(vertices, sizeof(vertices));
 
         Sesame::BufferLayout layout = {
             { Sesame::ShaderDataType::Float3, "a_Position" },
@@ -36,8 +35,7 @@ public:
         m_VertexArray->AddVertexBuffer(vertexBuffer);
 
         uint32_t indices[3] = { 0, 1, 2 };
-        Sesame::Ref<Sesame::IndexBuffer> indexBuffer;
-        indexBuffer.reset(Sesame::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+        Sesame::Ref<Sesame::IndexBuffer> indexBuffer = Sesame::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
         m_VertexArray->SetIndexBuffer(indexBuffer);
 
         m_SquareVertexArray = Sesame::VertexArray::Create();
@@ -49,8 +47,7 @@ public:
             -0.5f, 0.5f, 0.0f, 0.0f, 1.0f
         };
 
-        Sesame::Ref<Sesame::VertexBuffer> squareVertexBuffer;
-        squareVertexBuffer.reset(Sesame::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+        Sesame::Ref<Sesame::VertexBuffer> squareVertexBuffer = Sesame::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
         Sesame::BufferLayout squareLayout = {
             { Sesame::ShaderDataType::Float3, "a_Position" },
@@ -60,8 +57,7 @@ public:
         m_SquareVertexArray->AddVertexBuffer(squareVertexBuffer);
 
         uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-        Sesame::Ref<Sesame::IndexBuffer> squareIndexBuffer;
-        squareIndexBuffer.reset(Sesame::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+        Sesame::Ref<Sesame::IndexBuffer> squareIndexBuffer = Sesame::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
         m_SquareVertexArray->SetIndexBuffer(squareIndexBuffer);
 
 

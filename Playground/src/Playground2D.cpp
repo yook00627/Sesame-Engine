@@ -40,7 +40,7 @@ void Playground2D::OnUpdate(Sesame::Timestep ts)
         Sesame::Renderer2D::BeginScene(m_CameraController.GetCamera());
         Sesame::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, m_SquareColor);
         Sesame::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.7f }, { 0.1f, 0.8f, 0.3f, 1.0f });
-        Sesame::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_DefaultTexture, 4.0f, m_TintColor);
+        //Sesame::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_DefaultTexture, 4.0f, m_TintColor);
         Sesame::Renderer2D::EndScene(); 
     }
 }

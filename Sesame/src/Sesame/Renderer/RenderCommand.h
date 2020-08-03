@@ -26,9 +26,9 @@ namespace Sesame {
             s_RenderAPI->Clear();
         }
 
-        inline static void DrawIndexed(const Ref<VertexArray>& vertexArray)
+        inline static void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t count = 0)
         {
-            s_RenderAPI->DrawIndexed(vertexArray);
+            s_RenderAPI->DrawIndexed(vertexArray, count);
         }
     private:
         static RendererAPI* s_RenderAPI;
