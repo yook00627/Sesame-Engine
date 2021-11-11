@@ -1,2 +1,2 @@
 # Sesame-Engine
-Game Engine Project
+Fun Project
